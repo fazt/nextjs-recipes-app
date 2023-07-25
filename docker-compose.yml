@@ -1,0 +1,13 @@
+version: "3.8"
+
+services: 
+  postgres:
+    image: postgres
+    restart: always
+    environment: 
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=fazt
+      - POSTGRES_PASSWORD=faztpassword
+      - POSTGRES_DB=recipesdb
+    ports: 
+      - 5432:5432

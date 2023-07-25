@@ -6,15 +6,18 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model TextGenerations {
-  id      Int      @id @default(autoincrement())
-  n       Int      @default(0)
-  text    String
-  created DateTime @default(now())
-  updated DateTime @updatedAt
-  user    String @unique
+model Recipe {
+  id          Int      @id @default(autoincrement())
+  title       String @unique
+  description String?
+  ingredients String[]
+  directions  String[]
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String
 }
